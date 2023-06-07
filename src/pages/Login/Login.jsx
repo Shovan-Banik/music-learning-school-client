@@ -1,34 +1,73 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import Lottie from "lottie-react";
+import animation from '../../assets/animation/129750-login-orange.json'
+import { Link } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const onSubmit = data => {
+        console.log(data)
+    };
+
+    const handleTogglePassword = () => {
+        setShowPassword(!showPassword);
+    };
+
+
     return (
-        <div>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+        <div className="hero min-h-screen bg-base-200">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="text-center lg:text-left pt-12">
+                    <div>
+                        <Lottie animationData={animation} loop={true} />
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div className="card-body">
-                            <div className="form-control">
+                </div>
+                <div>
+                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                        <h2 className="text-3xl font-semibold py-4 text-center">Login please</h2>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input type="text" placeholder="email"
+                                {...register("email", { required: true })} className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                            </label>
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                placeholder="password" {...register("password", { required: true })}
+                                className="input input-bordered"
+                            />
+                        </div>
+                        <div className="form-control">
+                            <div className="relative">
+                                <input
+                                    type="checkbox"
+                                    className="absolute top-1 right-2"
+                                    checked={showPassword}
+                                    onChange={handleTogglePassword}
+                                />
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text-alt">Show password</span>
                                 </label>
-                                <input type="text" placeholder="email" className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="text" placeholder="password" className="input input-bordered" />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
-                            </div>
-                            <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
                             </div>
                         </div>
+                        <div className="form-control mt-6">
+                            <input className="btn my-btn" type="submit" value="SignUP" />
+                        </div>
+                    </form>
+                    <p className="text-center">New to here! <Link to='/signup'><span className="text-orange-600">SingUP</span></Link></p>
+                    <div className="text-center mt-4 ">
+                        <button className="btn btn-circle btn-outline">
+                            <FaGoogle></FaGoogle>
+                        </button>
                     </div>
                 </div>
             </div>
