@@ -4,11 +4,11 @@
 
 
 .active{
-    @apply font-medium tracking-wide text-orange-600 transition-colors duration-200 hover:text-orange-300
+    @apply font-medium text-orange-600 transition-colors duration-200 hover:text-orange-300
   }
   
   .default{
-    @apply font-medium tracking-wide text-white transition-colors duration-200 hover:text-white
+    @apply font-medium text-white transition-colors duration-200 hover:text-white
   }
   .my-btn{
     @apply inline-flex items-center h-12 px-6  font-medium text-white transition duration-200 rounded shadow-md  md:mb-0 bg-orange-600 hover:bg-orange-800

@@ -1,6 +1,14 @@
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet} from "react-router-dom";
+import useUserData from "../hooks/useUserData";
+import { FaHome, FaPlusCircle, FaSchool, FaUsers } from "react-icons/fa";
 
 const Dashboard = () => {
+    const [userFromDB] = useUserData();
+    const role = userFromDB?.role;
+    console.log(role);
+    if (!role) {
+        return <></>
+    }
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -14,8 +22,33 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                     {/* Sidebar content here */}
-                    <li><a>Sidebar Item 1</a></li>
-                    <li><a>Sidebar Item 2</a></li>
+                    {
+                        role === 'admin' ? <>
+                            <h2 className="text-2xl text-orange-600">Admin Dashboard</h2>
+                            <li><NavLink to="/dashboard/adminClasses"><FaSchool></FaSchool> Manage classes</NavLink></li>
+                            {/* <li><NavLink to="/dashboard/adminInstructor"><FaPeopleArrows></FaPeopleArrows>Instructor</NavLink></li> */}
+                            <li><NavLink to="/dashboard/adminStudents"><FaUsers></FaUsers> Manage students</NavLink></li>
+
+                        </> :
+                            role === 'instructor' ?
+                                <>
+                                    <h2 className="text-2xl text-orange-600">Instructor Dashboard</h2>
+                                    <li><NavLink to="/dashboard/addClass"><FaPlusCircle></FaPlusCircle>Add a Class</NavLink></li>
+                                    <li><NavLink to="/dashboard/instructorClasses"><FaSchool></FaSchool> My classes</NavLink></li>
+                                </> :
+                                <>
+                                    <h2 className="text-2xl text-orange-600">Student Dashboard</h2>
+                                    <li><NavLink to="/dashboard/paymentHistory"><FaSchool></FaSchool> Payment History</NavLink></li>
+                                    <li><NavLink to="/dashboard/selectedClass"><FaPlusCircle></FaPlusCircle>My selected Class</NavLink></li>
+                                    <li><NavLink to="/dashboard/enrolledClass"><FaPlusCircle></FaPlusCircle>My enrolled Class</NavLink></li>
+                                </>
+                    }
+
+                    <div className="divider"></div>
+                    <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
+                    <li><NavLink to="/instructor"><FaUsers></FaUsers> Instructor</NavLink></li>
+                    <li><NavLink to="/classes"><FaSchool></FaSchool> Classes</NavLink></li>
+
                 </ul>
 
             </div>
