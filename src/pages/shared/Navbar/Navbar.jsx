@@ -29,7 +29,7 @@ const Navbar = () => {
 
     </>
     return (
-        <div className="navbar fixed z-10 bg-opacity-40 text-white bg-black max-w-7xl px-10 py-0">
+        <div className="navbar text-white bg-black max-w-7xl px-10 py-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -55,7 +55,7 @@ const Navbar = () => {
                                     <img src={user?.photoURL} />
                                 </div>
                             </label>
-                            <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-gray-600 rounded-box w-20">
+                            <ul tabIndex={0} className="mt-3 p-2 z-10 text-black shadow menu menu-sm dropdown-content bg-orange-600 rounded-box w-20">
                                 <li onClick={handleLogOut}><a>Logout</a></li>
                             </ul>
                         </div></> : <Link to='/login'><button className="my-btn btn-xs ">Login</button></Link>

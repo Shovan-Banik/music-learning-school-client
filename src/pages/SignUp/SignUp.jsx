@@ -6,24 +6,54 @@ import { FaEye } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+// import axios from "axios";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const { register, handleSubmit, formState: { errors }, watch } = useForm();
+    const { register, reset, handleSubmit, formState: { errors }, watch } = useForm();
     const { createUser, updateUserProfile } = useAuth();
     const navigate = useNavigate();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = data => {
+
         createUser(data.email, data.password)
-            .then((result) => {
+            .then(result => {
+
                 const loggedUser = result.user;
                 console.log(loggedUser);
 
-                updateUserProfile(data.name, data.photoURL);
-                navigate('/login');
-            });
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        const saveUser = { name: data.name, email: data.email, image: data.photoURL, role: 'student' }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/login');
+                                }
+                            })
+
+
+
+                    })
+                    .catch(error => console.log(error))
+            })
     };
 
     const handleTogglePassword = () => {
