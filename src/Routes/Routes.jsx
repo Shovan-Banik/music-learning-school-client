@@ -10,6 +10,8 @@ import SignUp from "../pages/Signup/Signup";
 import Dashboard from "../Layout/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import ManageStudent from "../pages/Dashboard/ManageStudent/ManageStudent";
+import AddAClass from "../pages/Dashboard/AddAClass/AddAClass";
+import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 
 const router = createBrowserRouter([
     {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
             {
                 path:'manageStudents',
                 element:<ManageStudent></ManageStudent>
+            },
+            {
+                path:'addAClass',
+                element: <AddAClass></AddAClass>
+            },
+            {
+                path: 'myClasses',
+                element: <MyClasses></MyClasses>
             }
         ]
     }

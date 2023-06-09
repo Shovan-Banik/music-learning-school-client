@@ -13,7 +13,7 @@ const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const { register, reset, handleSubmit, formState: { errors }, watch } = useForm();
-    const { createUser, updateUserProfile } = useAuth();
+    const { createUser, updateUserProfile,logOut } = useAuth();
     const navigate = useNavigate();
 
     const onSubmit = data => {
@@ -45,7 +45,10 @@ const SignUp = () => {
                                         showConfirmButton: false,
                                         timer: 1500
                                     });
-                                    navigate('/login');
+                                    logOut().then(()=>{
+                                        navigate('/login');
+                                    })
+                                    
                                 }
                             })
 

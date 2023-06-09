@@ -2,9 +2,12 @@ import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/logo/LogoMusic.png'
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useUserData from "../../../hooks/useUserData";
 
 const Navbar = () => {
     const { user, logOut, theme, setTheme } = useAuth();
+    const[userFromDB]=useUserData();
+    const role=userFromDB?.role;
 
     const handleLogOut = () => {
         logOut()
@@ -26,9 +29,30 @@ const Navbar = () => {
         <li className=""><NavLink to='/' className={({ isActive }) => (isActive ? 'active' : 'default')}> Home </NavLink></li>
         <li className="mx-1"><NavLink to='/instructor' className={({ isActive }) => (isActive ? 'active' : 'default')}> Instructor </NavLink></li>
         <li><NavLink to='/classes' className={({ isActive }) => (isActive ? 'active' : 'default')}> Classes </NavLink></li>
-        {
+        {/* {
             user && <li><NavLink to='/dashboard' className={({ isActive }) => (isActive ? 'active' : 'default')}> Dashboard </NavLink></li>
-        }
+        } */}
+        {role === "admin" ? (
+        <>
+          <li>
+            <NavLink to="/dashboard/manageStudents">Dashboard</NavLink>
+          </li>
+        </>
+      ) : role === "instructor" ? (
+        <>
+          <li>
+            <NavLink to="/dashboard/addAClass">Dashboard</NavLink>
+          </li>
+        </>
+      ) : role === "student" ? (
+        <>
+          <li>
+            <NavLink to="/dashboard">Dashboard</NavLink>
+          </li>
+        </>
+      ) : (
+        <></>
+      )}
 
     </>
     return (
