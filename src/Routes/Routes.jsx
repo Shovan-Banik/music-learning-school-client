@@ -9,6 +9,7 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/Signup/Signup";
 import Dashboard from "../Layout/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import ManageStudent from "../pages/Dashboard/ManageStudent/ManageStudent";
 
 const router = createBrowserRouter([
     {
@@ -39,7 +40,13 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        children:[
+            {
+                path:'manageStudents',
+                element:<ManageStudent></ManageStudent>
+            }
+        ]
     }
 ]);
 export default router;
