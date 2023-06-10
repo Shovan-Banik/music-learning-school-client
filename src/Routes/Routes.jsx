@@ -14,6 +14,7 @@ import AddAClass from "../pages/Dashboard/AddAClass/AddAClass";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import SelectedClasses from "../pages/Dashboard/SelectedClasses/SelectedClasses";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
                 path: 'myClasses',
                 element: <MyClasses></MyClasses>
             },
+            {
+                path:'selectedClass',
+                element:<SelectedClasses></SelectedClasses>
+            }
 
         ]
     }

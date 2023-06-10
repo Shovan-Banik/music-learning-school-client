@@ -4,12 +4,14 @@ import useUserData from '../../hooks/useUserData';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useCart from '../../hooks/useCart';
 
 const Classes = () => {
     const [classes, setClasses] = useState([]);
     const navigate=useNavigate();
     const location=useLocation();
     const{user}=useAuth();
+    const[,refetch]=useCart();
     const[userFromDB]=useUserData();
     const role=userFromDB?.role;
 
@@ -37,8 +39,7 @@ const Classes = () => {
             }).then(res => res.json())
             .then(data => {
                 if(data.insertedId){
-                    // refetch cart to update the number of items in the cart
-                    // refetch(); 
+                    refetch(); 
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
