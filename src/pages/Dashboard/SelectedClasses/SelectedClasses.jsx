@@ -1,12 +1,10 @@
 import Swal from "sweetalert2";
 import useCart from "../../../hooks/useCart";
+import { Link } from "react-router-dom";
 
 const SelectedClasses = () => {
     const [cart,refetch] = useCart();
 
-    const handleEnroll=()=>{
-
-    }
     const handleDelete=(singleClass)=>{
         Swal.fire({
             title: 'Are you sure?',
@@ -67,7 +65,7 @@ const SelectedClasses = () => {
                                 <td>{singleClass.instructorEmail}</td>
                                 <td>{singleClass.seats}</td>
                                 <td>${singleClass.price}</td>
-                                <td><button onClick={() => handleEnroll(singleClass)} className="btn btn-xs bg-green-600  text-white">Enroll</button></td>
+                                <td><Link to={`/dashboard/payment/${singleClass._id}`}><button className="btn btn-xs bg-green-600  text-white">Enroll</button></Link></td>
                                 <td><button onClick={() => handleDelete(singleClass)} className="btn btn-xs bg-red-600  text-white">Delete</button></td>
                             </tr>)
                         }
