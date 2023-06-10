@@ -16,23 +16,28 @@ const Classes = () => {
     }, []);
 
     return (
-        <div className='mt-12'>
-            <ul>
+        <div className="my-8">
+            <div className='text-5xl font-bold text-center my-5'>
+                <h2> Classes </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
                 {classes.map((classItem) => (
-                    <div key={classItem._id} className="card card-side bg-base-100 shadow-xl h-72 w-1/2">
-                        <figure><img src={classItem.classImage} className='image-full' alt="Movie" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Class Name: {classItem.className}</h2>
-                            <p>Instructor Name: {classItem.instructorName}</p>
-                            <p>Available Seats: {classItem.instructorName}</p>
-                            <p>Price: {classItem.instructorName}</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-neutral">Watch</button>
+                    <div key={classItem._id} className="card card-side bg-base-100 shadow-xl h-full border-2 mx-2 md:mx-0">
+                        <figure className='w-1/2'>
+                            <img src={classItem.classImage} className="object-cover h-full" alt="Class" />
+                        </figure>
+                        <div className="card-body w-1/2">
+                            <h2 className="card-title text-xl font-semibold">{classItem.className}</h2>
+                            <p className="mb-4">Instructor: {classItem.instructorName}</p>
+                            <p className="mb-4">Available Seats: {classItem.seats}</p>
+                            <p className="mb-4">Price: ${classItem.price}</p>
+                            <div className="card-actions justify-start">
+                                <button className="btn btn-sm btn-neutral">Select</button>
                             </div>
                         </div>
                     </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };

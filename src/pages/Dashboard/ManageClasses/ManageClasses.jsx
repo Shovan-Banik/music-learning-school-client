@@ -122,7 +122,7 @@ const ManageClasses = () => {
                                 <td>{singleClass.price}</td>
                                 <td>{singleClass.status}</td>
                                 <td><button onClick={() => handleApproved(singleClass)} disabled={singleClass.status === 'approved' || singleClass.status === 'denied'} className="btn btn-xs bg-green-600  text-white ">Approve</button></td>
-                                <td><button onClick={() => handleDenied(singleClass)} disabled={singleClass.status==='denied'} className="btn btn-xs bg-green-600  text-white ">Deny</button></td>
+                                <td><button onClick={() => handleDenied(singleClass)} disabled={singleClass.status === 'approved' || singleClass.status === 'denied'} className="btn btn-xs bg-green-600  text-white ">Deny</button></td>
                                 <td><button onClick={() => handleFeedback(singleClass)} className="btn btn-xs  btn-neutral ">Feedback</button></td>
                             </tr>)
                         }

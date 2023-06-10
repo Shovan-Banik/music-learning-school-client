@@ -14,7 +14,6 @@ const useUserData = () => {
         return res.data;
     }
    })
-   console.log(userFromDB);
    return[userFromDB,isUserDBLoading];
 };
 
