@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 
+.drawer-side a{
+  background-color: transparent;
+}
+
+
+
 .active{
     @apply font-medium text-orange-600 transition-colors duration-200 hover:text-orange-300
   }

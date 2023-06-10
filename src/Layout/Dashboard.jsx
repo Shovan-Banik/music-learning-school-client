@@ -15,12 +15,12 @@ const Dashboard = () => {
             <div className="drawer-content flex flex-col ">
                 {/* Page content here */}
                 <div className="p-10 pt-5"><Outlet></Outlet></div>
-                <label htmlFor="my-drawer-2" className="btn my-btn drawer-button lg:hidden">Open drawer</label>
+                <label htmlFor="my-drawer-2" className="btn w-1/4 mx-auto drawer-button lg:hidden">Open drawer</label>
 
             </div>
-            <div className="drawer-side">
+            <div className="drawer-side sm:bg-slate-50  md:bg-slate-300">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-60 h-full bg-base-200 text-base-content">
+                <ul className="menu p-4 w-60 h-full text-base-content">
                     {/* Sidebar content here */}
                     {
                         role === 'admin' ? <>
