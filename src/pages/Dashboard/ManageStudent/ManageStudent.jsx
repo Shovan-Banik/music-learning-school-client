@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import useAllUserData from "../../../hooks/useAllUserData";
-import { FaUserSecret, FaUserTag } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const ManageStudent = () => {
@@ -51,13 +50,17 @@ const ManageStudent = () => {
             <Helmet>
                 <title>Music School | Manage Student</title>
             </Helmet>
-            <h3 className="text-3xl font-semibold my-4 text-center">Total Users: {allUserFromDB.length}</h3>
+
+            <div className='my-5 border-2 border-b-2 py-5 bg-zinc-50'>
+                <h2 className="text-center text-3xl font-bold  text-orange-600">Total Users: {allUserFromDB.length}</h2>
+            </div>
             <div className="overflow-x-auto">
-                <table className="table table-zebra w-full">
+                <table className="table border w-full">
                     {/* head */}
-                    <thead>
+                    <thead className="bg-zinc-50 text-black">
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Make Admin</th>
@@ -68,12 +71,13 @@ const ManageStudent = () => {
                         {
                             allUserFromDB.map((user, index) => <tr key={user._id}>
                                 <th>{index + 1}</th>
+                                <td><img className="h-10 w-10 rounded border" src={user.userImage} alt="User" /></td>
                                 <td>{user.userName}</td>
                                 <td>{user.userEmail}</td>
                                 <td>{user.role === 'admin' ? 'admin' :
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-sm bg-orange-600  text-white">admin<FaUserSecret></FaUserSecret></button>
+                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-xs btn-neutral text-white">Admin</button>
                                 }</td>
-                                <td>{user.role === 'instructor' ? 'instructor' : <button onClick={() => handleMakeInstructor(user)} className="btn btn-sm bg-orange-600  text-white">Instructor<FaUserTag></FaUserTag></button>}</td>
+                                <td >{user.role === 'instructor' ? 'instructor' : <button onClick={() => handleMakeInstructor(user)} className="btn btn-xs btn-neutral  text-white">Instructor</button>}</td>
                             </tr>)
                         }
 

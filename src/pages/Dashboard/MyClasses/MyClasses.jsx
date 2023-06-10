@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
-import { FaEdit } from "react-icons/fa";
+
 
 const MyClasses = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -13,17 +13,19 @@ const MyClasses = () => {
     })
 
     // todo:
-    const handleUpdate=()=>{
+    const handleUpdate = () => {
 
     }
 
     return (
         <div>
-            <h2 className="text-center text-3xl font-bold my-5 text-orange-600">My Classes</h2>
+            <div className='my-5 border-2 border-b-2 py-5 bg-zinc-50'>
+            <h2 className="text-center text-3xl font-bold  text-orange-600">My Classes</h2>
+            </div>
             <div className="overflow-x-auto">
-                <table className="table table-zebra w-full mt-5">
+                <table className="table border w-full mt-5">
                     {/* head */}
-                    <thead>
+                    <thead className=" text-black bg-zinc-50">
                         <tr>
                             <th>#</th>
                             <th>Class Image</th>
@@ -31,19 +33,22 @@ const MyClasses = () => {
                             <th>Enrolled Student</th>
                             <th>Status</th>
                             <th>Price</th>
+                            <th>Feedback</th>
                             <th>Action</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                         {
                             instructorClasses.map((singleClass, index) => <tr key={singleClass._id}>
                                 <th>{index + 1}</th>
-                                <td><img className="h-12 w-12" src={singleClass.classImage}/></td>
+                                <td><img className="h-12 w-12" src={singleClass.classImage} /></td>
                                 <td>{singleClass.className}</td>
                                 <td>{singleClass.enrolledStudents}</td>
                                 <td>{singleClass.status}</td>
                                 <td>{singleClass.price}</td>
-                                <td><button onClick={() => handleUpdate(user)} className="btn btn-sm bg-orange-600  text-white flex">update<FaEdit ></FaEdit></button></td>
+                                <td>{singleClass.feedback}</td>
+                                <td><button onClick={() => handleUpdate(user)} className="btn btn-xs bg-orange-600  text-white">Update</button></td>
                             </tr>)
                         }
                     </tbody>

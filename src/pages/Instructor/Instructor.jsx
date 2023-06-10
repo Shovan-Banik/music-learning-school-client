@@ -19,10 +19,10 @@ const Instructor = () => {
 
   return (
     <>
-      <h2 className="text-3xl font-bold text-center text-orange-600 my-5">All Instructors</h2>
+      <h2 className="text-3xl font-bold text-center text-orange-600 my-5 uppercase">All Instructors</h2>
       <div className="md:grid md:grid-cols-3 gap-4 my-8">
         {instructors.map(instructor => (
-          <div className="card card-compact w-96 bg-base-100 shadow-xl" key={instructor._id}>
+          <div className="card card-compact w-96 bg-base-100 shadow-xl border-2 border-orange-600" key={instructor._id}>
             <figure>
               <img src={instructor.userImage} alt="Shoes" />
             </figure>

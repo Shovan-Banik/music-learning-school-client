@@ -14,29 +14,29 @@ const Dashboard = () => {
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col ">
                 {/* Page content here */}
-                <Outlet></Outlet>
+                <div className="p-10 pt-5"><Outlet></Outlet></div>
                 <label htmlFor="my-drawer-2" className="btn my-btn drawer-button lg:hidden">Open drawer</label>
 
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                <ul className="menu p-4 w-60 h-full bg-base-200 text-base-content">
                     {/* Sidebar content here */}
                     {
                         role === 'admin' ? <>
-                            <h2 className="text-2xl text-orange-600 mb-2">Admin Dashboard</h2>
-                            <li><NavLink to="/dashboard/adminClasses"><FaSchool></FaSchool> Manage classes</NavLink></li>
+                            <h2 className="text-2xl font-bold mb-4">Admin Dashboard</h2>
+                            <li><NavLink to="/dashboard/manageClasses"><FaSchool></FaSchool> Manage classes</NavLink></li>
                             <li><NavLink to="/dashboard/manageStudents"><FaUsers></FaUsers> Manage students</NavLink></li>
 
                         </> :
                             role === 'instructor' ?
                                 <>
-                                    <h2 className="text-2xl text-orange-600 mb-2">Instructor Dashboard</h2>
+                                    <h2 className="text-xl font-bold mb-4">Instructor Dashboard</h2>
                                     <li><NavLink to="/dashboard/addAClass"><FaPlusCircle></FaPlusCircle>Add a Class</NavLink></li>
                                     <li><NavLink to="/dashboard/myClasses"><FaSchool></FaSchool> My classes</NavLink></li>
                                 </> :
                                 <>
-                                    <h2 className="text-2xl text-orange-600 mb-2">Student Dashboard</h2>
+                                    <h2 className="text-2xl font-bold mb-4">Student Dashboard</h2>
                                     <li><NavLink to="/dashboard/paymentHistory"><FaSchool></FaSchool> Payment History</NavLink></li>
                                     <li><NavLink to="/dashboard/selectedClass"><FaPlusCircle></FaPlusCircle>My selected Class</NavLink></li>
                                     <li><NavLink to="/dashboard/enrolledClass"><FaPlusCircle></FaPlusCircle>My enrolled Class</NavLink></li>

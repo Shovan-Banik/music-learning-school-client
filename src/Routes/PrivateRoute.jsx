@@ -8,7 +8,7 @@ const PrivateRoute = ({children}) => {
     const location=useLocation();
 
     if(loading){
-        return <div> <Lottie animationData={progress} loop={true} /> </div>
+        return <div className="w-2/12 flex justify-center"> <Lottie animationData={progress} loop={true} /> </div>
     }
     if(user){
         return children;
