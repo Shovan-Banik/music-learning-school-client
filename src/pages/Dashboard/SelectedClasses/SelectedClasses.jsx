@@ -1,14 +1,42 @@
+import Swal from "sweetalert2";
 import useCart from "../../../hooks/useCart";
 
 const SelectedClasses = () => {
-    const [cart] = useCart();
+    const [cart,refetch] = useCart();
 
     const handleEnroll=()=>{
 
     }
-    const handleDelete=()=>{
+    const handleDelete=(singleClass)=>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              fetch(`http://localhost:5000/carts/${singleClass._id}`,{
+                method: 'DELETE'
+              })
+              .then(res=>res.json())
+              .then(data=>{
+                if(data.deletedCount>0){
+                    refetch();
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                      )
+                }
+              })
+            }
+          })
 
     }
+   
     return (
         <div>
             <div className='my-5 border-2 border-b-2 py-5 bg-zinc-50'>
