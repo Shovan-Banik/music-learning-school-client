@@ -10,7 +10,7 @@ const AddAClass = () => {
 
     const onSubmit = data => {
         const { className, classImage, instructorEmail, instructorName, price, seats } = data;
-        const newClass = { className, classImage, instructorEmail, instructorName, price: parseFloat(price), seats, status: 'pending', enrolledStudents:0, feedback:''};
+        const newClass = { className, classImage, instructorEmail, instructorName, price: parseFloat(price), seats:parseInt(seats), status: 'pending', enrolledStudents:0, feedback:''};
         console.log(newClass);
         axiosSecure.post('/classes',newClass)
         .then(data=>{

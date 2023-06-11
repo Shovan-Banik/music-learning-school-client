@@ -26,7 +26,7 @@ const Dashboard = () => {
                         role === 'admin' ? <>
                             <h2 className="text-xl font-bold mb-4 text-justify">Admin Dashboard</h2>
                             <li><NavLink to="/dashboard/manageClasses"><FaSchool></FaSchool> Manage classes</NavLink></li>
-                            <li><NavLink to="/dashboard/manageStudents"><FaUsers></FaUsers> Manage students</NavLink></li>
+                            <li><NavLink to="/dashboard/manageStudents"><FaUsers></FaUsers> Manage Users</NavLink></li>
 
                         </> :
                             role === 'instructor' ?

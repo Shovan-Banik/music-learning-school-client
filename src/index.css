@@ -7,6 +7,13 @@
   background-color: transparent;
 }
 
+.carousel {
+ max-height: 600px!important;;
+}
+
+ul.thumbs.animated {
+  text-align: center;
+}
 
 
 .active{

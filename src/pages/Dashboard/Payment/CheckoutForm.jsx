@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 
 const CheckoutForm = ({price,selectedClass}) => {
@@ -15,6 +16,7 @@ const CheckoutForm = ({price,selectedClass}) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const{_id,className,instructorEmail,classImage,seats,selectedClassId}=selectedClass;
+    const navigate=useNavigate();
 
     useEffect(() => {
         if (price > 0) {
@@ -91,10 +93,11 @@ const CheckoutForm = ({price,selectedClass}) => {
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
-                            title: 'Done',
+                            title: 'Payment successfully done',
                             showConfirmButton: false,
                             timer: 1500
                           })
+                          navigate('/dashboard/enrolledClass')
                     }
                 })
         }

@@ -20,7 +20,7 @@ const MyClasses = () => {
     return (
         <div>
             <div className='my-5 border-2 border-b-2 py-5 bg-zinc-50'>
-            <h2 className="text-center text-3xl font-bold  text-orange-600">My Classes</h2>
+            <h2 className="text-center text-3xl font-bold  text-orange-600">My Enrolled Classes</h2>
             </div>
             <div className="overflow-x-auto">
                 <table className="table border w-full mt-5">
