@@ -83,7 +83,7 @@ const Classes = () => {
                         <div className="card-body w-1/2">
                             <h2 className="card-title text-xl font-semibold">{classItem.className}</h2>
                             <p className="mb-4">Instructor: {classItem.instructorName}</p>
-                            <p className="mb-4">Available Seats: {classItem.seats}</p>
+                            <p className="mb-4">Total Seats: {classItem.seats}</p>
                             <p className="mb-4">Enrolled Students: {classItem.enrolledStudents}</p>
                             <p className="mb-4">Price: ${classItem.price}</p>
                             <div className="card-actions justify-start">

@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useUserData from "../../../hooks/useUserData";
 
 
 const CheckoutForm = ({price,selectedClass}) => {
@@ -17,6 +18,7 @@ const CheckoutForm = ({price,selectedClass}) => {
     const [transactionId, setTransactionId] = useState('');
     const{_id,className,instructorEmail,classImage,seats,selectedClassId}=selectedClass;
     const navigate=useNavigate();
+    const[userFromDB]=useUserData();
 
     useEffect(() => {
         if (price > 0) {
@@ -78,13 +80,13 @@ const CheckoutForm = ({price,selectedClass}) => {
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
-                status: 'service pending',
                 className,
                 instructorEmail,
                 classImage,
                 seats,
                 selectedClassId,
-                cart_id:_id
+                cart_id:_id,
+                userId:userFromDB._id
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {

@@ -49,7 +49,7 @@ const SelectedClasses = () => {
                             <th>Class Image</th>
                             <th>Class Name</th>
                             <th>Instructor Email</th>
-                            <th>Available Seats</th>
+                            <th>Total Seats</th>
                             <th>Price</th>
                             <th>Action</th>
                             <th>Action</th>
