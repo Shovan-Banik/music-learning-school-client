@@ -90,7 +90,7 @@ const Classes = () => {
                                 <button
                                     onClick={() => handleAddToCart(classItem)}
                                     className="btn btn-sm btn-neutral"
-                                    disabled={role === 'admin' || role === 'instructor'}
+                                    disabled={role === 'admin' || role === 'instructor' || classItem.enrolledStudents === classItem.seats}
                                 >
                                     Select
                                 </button>
