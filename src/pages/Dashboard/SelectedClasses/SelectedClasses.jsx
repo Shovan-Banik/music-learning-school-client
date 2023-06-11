@@ -1,11 +1,14 @@
 import Swal from "sweetalert2";
 import useCart from "../../../hooks/useCart";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const SelectedClasses = () => {
     const [cart,refetch] = useCart();
 
-    const handleDelete=(singleClass)=>{
+    const [axiosSecure] = useAxiosSecure();
+
+    const handleDelete = (singleClass) => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -14,26 +17,24 @@ const SelectedClasses = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-              fetch(`http://localhost:5000/carts/${singleClass._id}`,{
-                method: 'DELETE'
-              })
-              .then(res=>res.json())
-              .then(data=>{
-                if(data.deletedCount>0){
-                    refetch();
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                      )
-                }
-              })
+                axiosSecure.delete(`/carts/${singleClass._id}`)
+                    .then((response) => response.data)
+                    .then((data) => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
             }
-          })
-
-    }
+        });
+    };
+    
    
     return (
         <div>

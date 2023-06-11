@@ -7,9 +7,9 @@ import banner4 from '../../../assets/banner/4.jpg';
 
 const Slider = () => {
     return (
-       <div > <Carousel autoPlay autoFocus className="">
+       <div > <Carousel autoPlay className="">
        <div>
-           <img  src={banner1} alt="Banner 1" />
+           <img  src={banner1} className="opacity-80" alt="Banner 1" />
            <div className="absolute top-1/2 md:top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center bg-black bg-opacity-50 text-white p-10 md:p-4">
                <h2 className="md:text-5xl text-xl font-bold">Improve Your Skill With Us</h2>
                <hr className="w-1/4 mx-auto my-4 hidden md:block"/>
@@ -17,7 +17,7 @@ const Slider = () => {
            </div>
        </div>
        <div>
-           <img src={banner2} alt="Banner 2" />
+           <img src={banner2} className="opacity-80" alt="Banner 2" />
            <div className="absolute top-1/2 md:top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center bg-black bg-opacity-50 text-white p-10 md:p-4">
                <h2 className="md:text-5xl text-xl font-bold "> Discover the Language of Music</h2>
                <hr className="w-1/4 mx-auto my-4 hidden md:block"/>
@@ -25,7 +25,7 @@ const Slider = () => {
            </div>
        </div>
        <div>
-           <img src={banner3} alt="Banner 3" />
+           <img src={banner3} className="opacity-80" alt="Banner 3" />
            <div className="absolute top-1/2 md:top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center bg-black bg-opacity-50 text-white p-10 md:p-4">
                <h2 className=" md:text-5xl text-xl font-bold  ">Unleash Your Musical Talent</h2>
                <hr className="w-1/4 mx-auto my-4 hidden md:block"/>
@@ -33,7 +33,7 @@ const Slider = () => {
            </div>
        </div>
        <div>
-           <img src={banner4} alt="Banner 4" />
+           <img src={banner4} className="opacity-80" alt="Banner 4" />
            <div className="absolute top-1/2 md:top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center bg-black bg-opacity-50 text-white p-10 md:p-4">
                <h2 className="md:text-5xl text-xl font-bold ">Find Your Groove with Us</h2>
                <hr className="w-1/4 mx-auto my-4 hidden md:block"/>

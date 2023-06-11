@@ -3,31 +3,32 @@ import SwiperCore, { EffectCoverflow, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import { useEffect, useState } from "react";
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
 const PopularClass = () => {
-    const [axiosSecure] = useAxiosSecure();
+    const[popularClasses,setPopularClasses]=useState([]);
 
-    const { data: popularClasses = [] } = useQuery(["popular"], async () => {
-        const res = await axiosSecure.get("/classes/popular");
-        return res.data;
-    });
+    useEffect(()=>{
+        fetch('https://music-learning-school-server.vercel.app/classes/popular')
+        .then(res=>res.json())
+        .then(data=>{
+            setPopularClasses(data);
+        })
+    },[])
 
     return (
         <div className="my-12 mx-12 md:mx-0">
-            <h2 className="text-5xl font-bold text-center my-12 capitalize text-black">Popular classes</h2>     
+            <h2 className="text-2xl md:text-5xl font-bold text-center my-12 capitalize text-black">Popular classes</h2>     
             <Swiper
                 effect={"coverflow"}
                 grabCursor={true}
-                centeredSlides={false}
+                centeredSlides={true}
                 slidesPerView={"auto"}
                 coverflowEffect={{
                     rotate: 50,
@@ -50,7 +51,7 @@ const PopularClass = () => {
                     <SwiperSlide key={popularClass._id}>
                         <div className="card card-compact w-96 bg-base-100 shadow-2xl">
                             <figure>
-                                <img src={popularClass.classImage} alt="Shoes" />
+                                <img className="h-96 object-cover" src={popularClass.classImage} alt="Shoes" />
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title">Name: {popularClass.className}</h2>

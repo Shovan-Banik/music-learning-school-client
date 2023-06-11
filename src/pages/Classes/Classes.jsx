@@ -4,6 +4,7 @@ import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Classes = () => {
     const [classes, setClasses] = useState([]);
@@ -13,9 +14,10 @@ const Classes = () => {
     const [, refetch] = useCart();
     const [userFromDB] = useUserData();
     const role = userFromDB?.role;
+    const [axiosSecure] = useAxiosSecure();
 
     useEffect(() => {
-        fetch('http://localhost:5000/allClasses')
+        fetch('https://music-learning-school-server.vercel.app/allClasses')
             .then((response) => response.json())
             .then((data) => {
                 setClasses(data);
@@ -25,24 +27,19 @@ const Classes = () => {
             });
     }, []);
 
-    const handleAddToCart = classItem => {
+    const handleAddToCart = (classItem) => {
         const { _id, className, classImage, price, instructorEmail, seats } = classItem;
         if (user && user.email) {
             const selectedClass = { selectedClassId: _id, className, classImage, price, instructorEmail, seats: parseInt(seats), email: user.email };
-            fetch('http://localhost:5000/carts', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(selectedClass)
-            }).then(res => res.json())
-                .then(data => {
+            axiosSecure.post('/carts', selectedClass)
+                .then((response) => response.data)
+                .then((data) => {
                     if (data.insertedId) {
                         refetch();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
-                            title: 'class added on the cart.',
+                            title: 'Class added to the cart.',
                             showConfirmButton: false,
                             timer: 1500
                         });
@@ -73,9 +70,8 @@ const Classes = () => {
                 {classes.map((classItem) => (
                     <div
                         key={classItem._id}
-                        className={`card card-side shadow-xl h-full border-2 mx-2 md:mx-0 ${
-                            classItem.enrolledStudents === classItem.seats ? 'bg-red-500' : 'bg-base-100'
-                        }`}
+                        className={`card card-side shadow-xl h-full border-2 mx-2 md:mx-0 ${classItem.enrolledStudents === classItem.seats ? 'bg-red-500' : 'bg-base-100'
+                            }`}
                     >
                         <figure className='w-1/2'>
                             <img src={classItem.classImage} className="object-cover h-full" alt="Class" />

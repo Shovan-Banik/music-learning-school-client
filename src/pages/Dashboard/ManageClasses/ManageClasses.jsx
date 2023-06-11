@@ -7,92 +7,82 @@ const ManageClasses = () => {
     const [axiosSecure] = useAxiosSecure();
     const { user } = useAuth();
 
-    const { data: allClasses = [],refetch } = useQuery(['classes', user?.email], async () => {
+    const { data: allClasses = [], refetch } = useQuery(['classes', user?.email], async () => {
         const res = await axiosSecure.get(`/classes`)
         return res.data;
     })
 
-    // todo:
-    const handleApproved = singleClass => {
-        fetch(`http://localhost:5000/classes/approve/${singleClass._id}`, {
-            method: 'PATCH'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.modifiedCount) {
-                    refetch();
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: `${singleClass?.className} is updated!`,
-                        showConfirmButton: false,
-                        timer: 1000
-                    })
-                }
+    const handleApproved = async (singleClass) => {
+        const res = await axiosSecure.patch(`/classes/approve/${singleClass._id}`)
+        if (res.data.modifiedCount > 1) {
+            refetch();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: `${singleClass?.className} is updated!`,
+                showConfirmButton: false,
+                timer: 1000
             })
+        }
     }
-    const handleDenied = singleClass => {
-        fetch(`http://localhost:5000/classes/deny/${singleClass._id}`, {
-            method: 'PATCH'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.modifiedCount) {
-                    refetch();
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: `${singleClass?.className} is updated!`,
-                        showConfirmButton: false,
-                        timer: 1000
-                    })
-                }
-            })
-    }
-    const handleFeedback = (singleClass) => {
-        Swal.fire({
-          input: 'textarea',
-          inputLabel: 'Message',
-          inputPlaceholder: 'Type your message here...',
-          inputAttributes: {
-            'aria-label': 'Type your message here'
-          },
-          showCancelButton: true
-        }).then((result) => {
-          if (result.isConfirmed && result.value) {
-            const feedbackText = result.value;
-      
-            fetch(`http://localhost:5000/classes/feedback/${singleClass._id}`, {
-              method: 'PATCH',
-              body: JSON.stringify({ feedback: feedbackText }),
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            })
-              .then((res) => res.json())
-              .then((data) => {
+
+    const handleDenied = (singleClass) => {
+        axiosSecure.patch(`/classes/deny/${singleClass._id}`)
+            .then((response) => response.data)
+            .then((data) => {
                 console.log(data);
                 if (data.modifiedCount) {
-                  refetch();
-                  Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${singleClass?.className} is updated!`,
-                    showConfirmButton: false,
-                    timer: 1000
-                  });
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${singleClass?.className} is updated!`,
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
                 }
-              });
-          }
-        });
-      };
+            });
+    };
+    
+
+
+const handleFeedback = (singleClass) => {
+    Swal.fire({
+        input: 'textarea',
+        inputLabel: 'Message',
+        inputPlaceholder: 'Type your message here...',
+        inputAttributes: {
+            'aria-label': 'Type your message here'
+        },
+        showCancelButton: true
+    }).then((result) => {
+        if (result.isConfirmed && result.value) {
+            const feedbackText = result.value;
+
+            axiosSecure.patch(`/classes/feedback/${singleClass._id}`, { feedback: feedbackText })
+                .then((response) => response.data)
+                .then((data) => {
+                    console.log(data);
+                    if (data.modifiedCount) {
+                        refetch();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: `${singleClass?.className} is updated!`,
+                            showConfirmButton: false,
+                            timer: 1000
+                        });
+                    }
+                });
+        }
+    });
+};
+
 
     return (
         <div>
             <div className='my-5 border-2 border-b-2 py-5 bg-zinc-50'>
-            <h2 className="text-center text-3xl font-bold  text-orange-600">Manage Classes</h2>
+                <h2 className="text-center text-3xl font-bold  text-orange-600">Manage Classes</h2>
             </div>
             <div className="overflow-x-auto">
                 <table className="table  w-full mt-5 border">
@@ -115,7 +105,7 @@ const ManageClasses = () => {
                         {
                             allClasses.map((singleClass, index) => <tr key={singleClass._id}>
                                 <th>{index + 1}</th>
-                                <td><img className="h-12 w-12" src={singleClass.classImage}/></td>
+                                <td><img className="h-12 w-12" src={singleClass.classImage} /></td>
                                 <td>{singleClass.className}</td>
                                 <td>{singleClass.instructorName}</td>
                                 <td>{singleClass.seats}</td>

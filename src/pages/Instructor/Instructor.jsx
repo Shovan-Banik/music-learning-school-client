@@ -7,7 +7,7 @@ const Instructor = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/instructor");
+        const response = await axios.get("https://music-learning-school-server.vercel.app/instructor");
         setInstructors(response.data);
       } catch (error) {
         console.log(error);

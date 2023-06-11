@@ -1,36 +1,36 @@
 import { Helmet } from "react-helmet-async";
 import useAllUserData from "../../../hooks/useAllUserData";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageStudent = () => {
     const [allUserFromDB, refetch] = useAllUserData();
 
-    const handleMakeAdmin = user => {
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
-            method: 'PATCH'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.modifiedCount) {
-                    refetch();
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: `${user?.userName} is an Admin Now!`,
-                        showConfirmButton: false,
-                        timer: 1000
-                    })
-                }
-            })
-    }
+    const [axiosSecure] = useAxiosSecure();
+
+const handleMakeAdmin = user => {
+    axiosSecure.patch(`/users/admin/${user._id}`)
+        .then(response => response.data)
+        .then(data => {
+            console.log(data);
+            if (data.modifiedCount) {
+                refetch();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `${user?.userName} is an Admin Now!`,
+                    showConfirmButton: false,
+                    timer: 1000
+                });
+            }
+        });
+};
+    
     const handleMakeInstructor = user => {
-        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
-            method: 'PATCH'
-        })
-            .then(res => res.json())
+        axiosSecure.patch(`/users/instructor/${user._id}`)
+            .then(response => response.data)
             .then(data => {
-                console.log(data)
+                console.log(data);
                 if (data.modifiedCount) {
                     refetch();
                     Swal.fire({
@@ -39,10 +39,10 @@ const ManageStudent = () => {
                         title: `${user?.userName} is an instructor Now!`,
                         showConfirmButton: false,
                         timer: 1000
-                    })
+                    });
                 }
-            })
-    }
+            });
+    };
 
 
     return (
