@@ -23,6 +23,7 @@ Music School is a web application built with React, Node.js, MongoDB, Express, F
 - Express: Web application framework for Node.js
 - Firebase: Platform for building web and mobile applications
 - Stripe: Payment processing platform for online transactions
+- React Hook Form: Login and SignUp processing 
 - Tailwind CSS: Utility-first CSS framework for rapid UI development
 - Daisi UI: UI component library for React and Tailwind CSS
 - React Router DOM: Library for handling routing in React applications
@@ -30,3 +31,4 @@ Music School is a web application built with React, Node.js, MongoDB, Express, F
 - React Awesome Reveal: Library for adding reveal animations to React components
 - Lottie Animation: Library for rendering interactive animations
 - SweetAlert2: Library for displaying beautiful pop-up alerts
+- React-awesome-reveal : For animation of text.
