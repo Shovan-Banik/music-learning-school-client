@@ -3,6 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import { Zoom } from "react-awesome-reveal";
 
 const AddAClass = () => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
@@ -33,9 +34,11 @@ const AddAClass = () => {
             <Helmet>
                 <title>Music School | Dashboard | Add A Class</title>
             </Helmet>
+            <div className='my-5 border-2 border-b-2 bg-zinc-50 py-5'>
+                <Zoom><h2 className="text-3xl md:text-5xl font-bold py-4 text-center text-orange-600 uppercase">Add a Class</h2></Zoom>
+            </div>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body  md:w-3/4 mx-auto">
-                    <h2 className="text-3xl font-semibold py-4 text-center text-orange-600">Add a Class</h2>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Class Name</span>

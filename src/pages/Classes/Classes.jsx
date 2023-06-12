@@ -6,6 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { Helmet } from 'react-helmet-async';
+import { Zoom} from "react-awesome-reveal";
+
 
 const Classes = () => {
     const [classes, setClasses] = useState([]);
@@ -69,7 +71,7 @@ const Classes = () => {
             </Helmet>
             <div className="my-8">
                 <div>
-                    <h2 className='text-5xl font-bold text-center my-10 text-orange-700'> Classes </h2>
+                    <Zoom><h2 className='text-3xl md:text-5xl font-bold text-center my-10 text-orange-700 uppercase'>All Classes </h2></Zoom>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
                     {classes.map((classItem) => (

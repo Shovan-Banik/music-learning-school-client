@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import useAllUserData from "../../../hooks/useAllUserData";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Zoom} from "react-awesome-reveal";
 
 const ManageStudent = () => {
     const [allUserFromDB, refetch] = useAllUserData();
@@ -53,7 +54,7 @@ const ManageStudent = () => {
                 </Helmet>
 
                 <div className='my-5 border-2 border-b-2 py-5 bg-zinc-50'>
-                    <h2 className="text-center text-3xl font-bold  text-orange-600">Total Users: {allUserFromDB.length}</h2>
+                    <Zoom><h2 className="text-center text-3xl md:text-5xl font-bold  text-orange-700 uppercase">Total Users: {allUserFromDB.length}</h2></Zoom>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="table border w-full">

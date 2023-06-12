@@ -13,7 +13,7 @@ const PopularInstructor = () => {
   }, [])
   return (
     <div className="my-12">
-      <Zoom><h2 className="text-2xl md:text-5xl font-bold text-center my-12">Popular Instructors</h2></Zoom>
+      <Zoom><h2 className="text-2xl md:text-5xl font-bold text-center my-12 uppercase">Popular Instructors</h2></Zoom>
       <Marquee>
       <div className="grid grid-cols-6 gap-8">
         {

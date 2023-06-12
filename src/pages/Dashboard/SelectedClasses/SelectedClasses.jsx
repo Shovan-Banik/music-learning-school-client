@@ -3,6 +3,8 @@ import useCart from "../../../hooks/useCart";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
+import { Zoom } from "react-awesome-reveal";
+
 
 const SelectedClasses = () => {
     const [cart, refetch] = useCart();
@@ -44,7 +46,7 @@ const SelectedClasses = () => {
             </Helmet>
             <div>
                 <div className='my-5 border-2 border-b-2 py-5 bg-zinc-50'>
-                    <h2 className="text-center text-3xl font-bold  text-orange-600">Your Selected class: {cart.length}</h2>
+                    <Zoom><h2 className="text-center text-3xl md:text-5xl font-bold uppercase  text-orange-700">Your Selected class: {cart.length}</h2></Zoom>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="table border w-full mt-5">

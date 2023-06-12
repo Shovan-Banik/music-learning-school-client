@@ -3,6 +3,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useAuth from '../../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import { Zoom} from "react-awesome-reveal";
 
 const ManageClasses = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -87,7 +88,7 @@ const ManageClasses = () => {
             </Helmet>
             <div>
                 <div className='my-5 border-2 border-b-2 py-5 bg-zinc-50'>
-                    <h2 className="text-center text-3xl font-bold  text-orange-600">Manage Classes</h2>
+                    <Zoom><h2 className="text-center text-3xl md:text-5xl font-bold  text-orange-700 uppercase">Manage Classes</h2></Zoom>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="table  w-full mt-5 border">

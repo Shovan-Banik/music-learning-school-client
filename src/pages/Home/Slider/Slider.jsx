@@ -13,7 +13,7 @@ const Slider = () => {
             <div>
                 <img src={banner1} className="opacity-80" alt="Banner 1" />
                 <div className="absolute top-1/2 md:top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center bg-black bg-opacity-50 text-white p-10 md:p-4">
-                    <Zoom cascade><h2 className="md:text-5xl text-xl font-bold">Improve Your Skill With Us</h2></Zoom>
+                    <Zoom cascade><h2 className="md:text-5xl text-xl font-bold uppercase">Improve Your Skill With Us</h2></Zoom>
                     <hr className="w-1/4 mx-auto my-4 hidden md:block" />
                     <p className="py-5 text-justify hidden md:block">We are thrilled to have you here on this virtual journey into the world of music. Whether you're a beginner taking your first steps or an experienced musician looking to further refine your skills, our school offers a nurturing and inspiring environment for students of all ages and levels.</p>
                 </div>

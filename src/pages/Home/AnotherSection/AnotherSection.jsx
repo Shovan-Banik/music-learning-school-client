@@ -4,6 +4,7 @@ import { Slide} from "react-awesome-reveal";
 const AnotherSection = () => {
     return (
         <div className="my-12 px-8">
+            <h2 className="text-3xl md:text-5xl text-center font-bold my-12">Given Facilities</h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div className="border-2 shadow-lg p-5 text-center rounded-xl">
                     <div className="flex justify-center">
