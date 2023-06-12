@@ -9,6 +9,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 import 'animate.css';
+import {Slide} from "react-awesome-reveal";
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
@@ -25,7 +26,7 @@ const PopularClass = () => {
 
     return (
         <div className="my-12 mx-6 md:mx-0">
-            <h2 className="text-2xl md:text-5xl font-bold text-center mb-12 capitalize animate__animated animate__bounce">Popular classes</h2>     
+            <Slide><h2 className="text-2xl md:text-5xl font-bold text-center mb-12 capitalize animate__animated animate__Zoom">Popular classes</h2> </Slide>    
             <Swiper
                 effect={"coverflow"}
                 grabCursor={true}

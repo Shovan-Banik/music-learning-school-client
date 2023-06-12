@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import 'animate.css';
+import { Zoom} from "react-awesome-reveal";
 import Marquee from "react-fast-marquee";
 
 const PopularInstructor = () => {
@@ -13,11 +13,11 @@ const PopularInstructor = () => {
   }, [])
   return (
     <div className="my-12">
-      <h2 className="text-2xl md:text-5xl font-bold text-center my-12 animate__animated animate__bounce">Popular Instructors</h2>
+      <Zoom><h2 className="text-2xl md:text-5xl font-bold text-center my-12">Popular Instructors</h2></Zoom>
       <Marquee>
       <div className="grid grid-cols-6 gap-8">
         {
-          popularInstructors.map(popularInstructor => <div key={popularInstructor._id} className="card card-compact w-96 bg-base-100 shadow-xl border-2 mr-12">
+          popularInstructors.map(popularInstructor => <div key={popularInstructor._id} className="card card-compact w-96 bg-base-100 shadow-xl border-2 mr-5">
             <figure><img className="h-80" src={popularInstructor.userImage} alt="user" /></figure>
             <div className="card-body">
               <h2 className="text-center text-orange-900 text-2xl font-semibold">{popularInstructor.userName}</h2>

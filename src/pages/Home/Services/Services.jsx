@@ -10,7 +10,7 @@ const Services = () => {
             <div className='md:flex md:justify-between'>
                 <div className='md:w-1/2 flex justify-center items-center py-5 px-12'>
                     <div>
-                        <h2 className='text-3xl font-semibold text-center pb-4'>Explore the services</h2>
+                        <h2 className='text-4xl font-semibold text-center pb-4'>Explore the services</h2>
                         <p className='text-justify'>Our highly skilled and experienced instructors are dedicated to helping students develop their musical abilities and reach their full potential. Whether you're a beginner taking your first steps in learning an instrument or an advanced player looking to refine your skills, we have lessons suited for all levels.</p>
                     </div>
                 </div>

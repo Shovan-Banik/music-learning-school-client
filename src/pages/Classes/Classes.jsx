@@ -68,8 +68,8 @@ const Classes = () => {
                 <title>Music School | Classes</title>
             </Helmet>
             <div className="my-8">
-                <div className='text-5xl font-bold text-center my-5'>
-                    <h2> Classes </h2>
+                <div>
+                    <h2 className='text-5xl font-bold text-center my-10 text-orange-700'> Classes </h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
                     {classes.map((classItem) => (

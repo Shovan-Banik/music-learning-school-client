@@ -20,7 +20,7 @@ const Payment = () => {
     return (
         <>
             <div>
-                <div className="border-2 bg-slate-100 shadow-lg p-2 mb-12">
+                <div className="border-2 shadow-lg p-2 mb-12">
                     <h2 className="text-3xl font-bold my-5 text-center">Make Sure Your Payment First!</h2>
                 </div>
                 <div>

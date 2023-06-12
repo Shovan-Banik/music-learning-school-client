@@ -1,3 +1,8 @@
+# Live Link:
+# Server Site Github Code Link: 
+* Admin Email: shovan@banik.com
+* Admin Password: $Shovan
+
 # Music School
 
 Music School is a web application built with React, Node.js, MongoDB, Express, Firebase, and other technologies. It provides a platform for users to learn various types of music classes, such as guitar and piano, and purchase courses. The project utilizes Stripe for payment processing, Tailwind CSS for styling, Daisi UI for UI components, React Router DOM for routing, React Marquee for displaying scrolling text, React Awesome Reveal for animations, Lottie Animation for interactive animations, and SweetAlert2 for displaying alerts.

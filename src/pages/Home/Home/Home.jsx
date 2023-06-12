@@ -4,6 +4,7 @@ import PopularClass from "../PopularClass/PopularClass";
 import ExtraSection from "../ExtraSection/ExtraSection";
 import PopularInstructor from "../PopularInstructor/PopularInstructor";
 import Services from "../Services/Services";
+import AnotherSection from "../AnotherSection/AnotherSection";
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <ExtraSection></ExtraSection>
             <PopularClass></PopularClass>
             <Services></Services>
+            <AnotherSection></AnotherSection>
         </div>
     );
 };
