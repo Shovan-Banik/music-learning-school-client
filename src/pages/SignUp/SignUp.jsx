@@ -27,7 +27,7 @@ const SignUp = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveUser = { userName: data.name, userEmail: data.email, userImage: data.photoURL, role: 'student' }
-                        fetch('https://music-learning-school-server.vercel.app/users', {
+                        fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

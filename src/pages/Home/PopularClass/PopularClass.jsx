@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
+import 'animate.css';
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
@@ -15,7 +16,7 @@ const PopularClass = () => {
     const[popularClasses,setPopularClasses]=useState([]);
 
     useEffect(()=>{
-        fetch('https://music-learning-school-server.vercel.app/classes/popular')
+        fetch('http://localhost:5000/classes/popular')
         .then(res=>res.json())
         .then(data=>{
             setPopularClasses(data);
@@ -24,7 +25,7 @@ const PopularClass = () => {
 
     return (
         <div className="my-12 mx-12 md:mx-0">
-            <h2 className="text-2xl md:text-5xl font-bold text-center my-12 capitalize text-black">Popular classes</h2>     
+            <h2 className="text-2xl md:text-5xl font-bold text-center mb-12 capitalize text-black animate__animated animate__bounce">Popular classes</h2>     
             <Swiper
                 effect={"coverflow"}
                 grabCursor={true}
@@ -54,10 +55,10 @@ const PopularClass = () => {
                                 <img className="h-96 object-cover" src={popularClass.classImage} alt="Shoes" />
                             </figure>
                             <div className="card-body">
-                                <h2 className="card-title">Name: {popularClass.className}</h2>
-                                <p>Instructor Name: {popularClass.instructorName}</p>
-                                <p>Price: {popularClass.price}</p>
-                                <p>Total Enrolled students: {popularClass.enrolledStudents}</p>
+                                <h2 className="card-title">{popularClass.className}</h2>
+                                <p className="font-bold text-black"><span className='text-orange-900 font-bold'>Instructor Name:</span> {popularClass.instructorName}</p>
+                                <p className="font-bold text-black"><span className='text-orange-900 font-bold'>Price:</span> {popularClass.price}</p>
+                                <p className="font-bold text-black pb-5"><span className='text-orange-900 font-bold'>Total Enrolled students:</span> {popularClass.enrolledStudents}</p>
                             </div>
                         </div>
                     </SwiperSlide>

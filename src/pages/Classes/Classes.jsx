@@ -17,7 +17,7 @@ const Classes = () => {
     const [axiosSecure] = useAxiosSecure();
 
     useEffect(() => {
-        fetch('https://music-learning-school-server.vercel.app/allClasses')
+        fetch('http://localhost:5000/allClasses')
             .then((response) => response.json())
             .then((data) => {
                 setClasses(data);
@@ -60,7 +60,7 @@ const Classes = () => {
             });
         }
     };
-
+    
     return (
         <div className="my-8">
             <div className='text-5xl font-bold text-center my-5'>
@@ -70,7 +70,7 @@ const Classes = () => {
                 {classes.map((classItem) => (
                     <div
                         key={classItem._id}
-                        className={`card card-side shadow-xl h-full border-2 mx-2 md:mx-0 ${classItem.enrolledStudents === classItem.seats ? 'bg-red-500' : 'bg-base-100'
+                        className={`card card-side shadow-xl h-full border-2 mx-2 md:mx-0 ${classItem.enrolledStudents === classItem.seats ? 'bg-red-200' : 'bg-base-100'
                             }`}
                     >
                         <figure className='w-1/2'>
@@ -78,10 +78,10 @@ const Classes = () => {
                         </figure>
                         <div className="card-body w-1/2">
                             <h2 className="card-title text-xl font-semibold">{classItem.className}</h2>
-                            <p className="mb-4">Instructor: {classItem.instructorName}</p>
-                            <p className="mb-4">Total Seats: {classItem.seats}</p>
-                            <p className="mb-4">Enrolled Students: {classItem.enrolledStudents}</p>
-                            <p className="mb-4">Price: ${classItem.price}</p>
+                            <p className="mb-4 text-black font-semibold"><span className='text-orange-900 font-bold'>Instructor:</span> {classItem.instructorName}</p>
+                            <p className="mb-4 text-black font-semibold"><span className='text-orange-900 font-bold'>Total Seats:</span> {classItem.seats}</p>
+                            <p className="mb-4 text-black font-semibold"><span className='text-orange-900 font-bold'>Enrolled Students:</span> {classItem.enrolledStudents}</p>
+                            <p className="mb-4 text-black font-semibold"><span className='text-orange-900 font-bold'>Price:</span> ${classItem.price}</p>
                             <div className="card-actions justify-start">
                                 <button
                                     onClick={() => handleAddToCart(classItem)}
