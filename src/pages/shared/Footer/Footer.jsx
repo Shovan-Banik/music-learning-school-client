@@ -2,7 +2,7 @@ import logo from '../../../assets/logo/LogoMusic.png'
 import { FaPhoneAlt } from "react-icons/fa";
 const Footer = () => {
     return (
-        <div className=' bg-black  text-white'>
+        <div>
             <footer className="footer p-10 text-xl md:text-base">
                 <div>
                     <div className='w-[120px]'>
@@ -33,7 +33,7 @@ const Footer = () => {
                     <a className="link link-hover mt-2"><span className='flex'><FaPhoneAlt className='mr-2 text-2xl'></FaPhoneAlt> 01794792728</span></a>
                 </div>
             </footer>
-            <div className=' bg-black  text-gray-400 text-center py-5'>
+            <div className=' text-center py-5'>
                 <p>Copyright © 2023 - All right reserved by Music School</p>
             </div>
         </div>

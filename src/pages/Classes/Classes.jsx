@@ -83,10 +83,10 @@ const Classes = () => {
                             </figure>
                             <div className="card-body w-1/2">
                                 <h2 className="card-title text-xl font-semibold">{classItem.className}</h2>
-                                <p className="mb-4 text-black font-semibold"><span className='text-orange-900 font-bold'>Instructor:</span> {classItem.instructorName}</p>
-                                <p className="mb-4 text-black font-semibold"><span className='text-orange-900 font-bold'>Total Seats:</span> {classItem.seats}</p>
-                                <p className="mb-4 text-black font-semibold"><span className='text-orange-900 font-bold'>Enrolled Students:</span> {classItem.enrolledStudents}</p>
-                                <p className="mb-4 text-black font-semibold"><span className='text-orange-900 font-bold'>Price:</span> ${classItem.price}</p>
+                                <p className="mb-4 font-semibold"><span className='text-orange-900 font-bold'>Instructor:</span> {classItem.instructorName}</p>
+                                <p className="mb-4ont-semibold"><span className='text-orange-900 font-bold'>Total Seats:</span> {classItem.seats}</p>
+                                <p className="mb-4 font-semibold"><span className='text-orange-900 font-bold'>Enrolled Students:</span> {classItem.enrolledStudents}</p>
+                                <p className="mb-4 font-semibold"><span className='text-orange-900 font-bold'>Price:</span> ${classItem.price}</p>
                                 <div className="card-actions justify-start">
                                     <button
                                         onClick={() => handleAddToCart(classItem)}

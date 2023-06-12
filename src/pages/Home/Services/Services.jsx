@@ -3,7 +3,7 @@ import animation2 from '../../../assets/animation/71611-singing-and-playing-musi
 import Lottie from "lottie-react";
 const Services = () => {
     return (
-        <div className='bg-zinc-100 rounded-xl p-5'>
+        <div className=' rounded-xl p-5'>
             <div className='md: w-1/4 w:1/2 mx-auto'>
                 <Lottie animationData={animation1} loop={true} />
             </div>
