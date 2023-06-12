@@ -20,7 +20,7 @@ const Classes = () => {
     const [axiosSecure] = useAxiosSecure();
 
     useEffect(() => {
-        fetch('http://localhost:5000/allClasses')
+        fetch('https://music-learning-school-server.vercel.app/allClasses')
             .then((response) => response.json())
             .then((data) => {
                 setClasses(data);

@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 const PopularInstructor = () => {
   const [popularInstructors, setPopularInstructors] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/user-popularInstructor')
+    fetch('https://music-learning-school-server.vercel.app/user-popularInstructor')
       .then(res => res.json())
       .then(data => {
         setPopularInstructors(data);

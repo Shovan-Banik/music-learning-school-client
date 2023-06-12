@@ -15,7 +15,7 @@ const SocialLogin = () => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
                 const saveUser = { userName: loggedInUser.displayName, userEmail: loggedInUser.email, userImage: loggedInUser.photoURL, role: 'student' }
-                fetch('http://localhost:5000/users', {
+                fetch('https://music-learning-school-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

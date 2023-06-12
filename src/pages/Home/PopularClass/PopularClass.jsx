@@ -16,7 +16,7 @@ const PopularClass = () => {
     const[popularClasses,setPopularClasses]=useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/classes/popular')
+        fetch('https://music-learning-school-server.vercel.app/classes/popular')
         .then(res=>res.json())
         .then(data=>{
             setPopularClasses(data);
@@ -25,7 +25,7 @@ const PopularClass = () => {
 
     return (
         <div className="my-12 mx-6 md:mx-0">
-            <Slide><h2 className="text-2xl md:text-5xl font-bold text-center mb-12 capitalize">POPULAR CLASSES</h2> </Slide>    
+            <Slide><h2 className="text-2xl md:text-5xl font-bold text-center mb-12 uppercase">POPULAR CLASSES</h2> </Slide>    
             <Swiper
                 effect={"coverflow"}
                 grabCursor={true}

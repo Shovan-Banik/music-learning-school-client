@@ -11,7 +11,7 @@ const Payment = () => {
     const { classId } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/carts/${classId}`)
+        fetch(`https://music-learning-school-server.vercel.app/carts/${classId}`)
             .then(res => res.json())
             .then(data => {
                 setSelectedClass(data)
