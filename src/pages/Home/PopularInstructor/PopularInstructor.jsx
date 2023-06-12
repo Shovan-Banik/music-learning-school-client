@@ -15,9 +15,9 @@ const PopularInstructor = () => {
     <div className="my-12">
       <h2 className="text-2xl md:text-5xl font-bold text-center my-12 animate__animated animate__bounce">Popular Instructors</h2>
       <Marquee>
-      <div className="grid grid-cols-6  gap-8">
+      <div className="grid grid-cols-6 gap-8">
         {
-          popularInstructors.map(popularInstructor => <div key={popularInstructor._id} className="card card-compact w-96 bg-base-100 shadow-xl border-2">
+          popularInstructors.map(popularInstructor => <div key={popularInstructor._id} className="card card-compact w-96 bg-base-100 shadow-xl border-2 mr-12">
             <figure><img className="h-80" src={popularInstructor.userImage} alt="user" /></figure>
             <div className="card-body">
               <h2 className="text-center text-orange-900 text-2xl font-semibold">{popularInstructor.userName}</h2>

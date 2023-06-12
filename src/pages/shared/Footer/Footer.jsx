@@ -3,7 +3,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 text-xl md:text-base">
+            <footer className="footer p-10 text-xl md:text-base px-24 md:px-0 md:pl-20">
                 <div>
                     <div className='w-[120px]'>
                         <img src={logo} alt="" />
