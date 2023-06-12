@@ -4,7 +4,6 @@ import Marquee from "react-fast-marquee";
 
 const PopularInstructor = () => {
   const [popularInstructors, setPopularInstructors] = useState([]);
-  console.log(popularInstructors);
   useEffect(() => {
     fetch('http://localhost:5000/user-popularInstructor')
       .then(res => res.json())
