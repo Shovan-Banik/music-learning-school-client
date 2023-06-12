@@ -24,7 +24,7 @@ const PopularClass = () => {
     },[])
 
     return (
-        <div className="my-12 mx-12 md:mx-0">
+        <div className="my-12 mx-6 md:mx-0">
             <h2 className="text-2xl md:text-5xl font-bold text-center mb-12 capitalize text-black animate__animated animate__bounce">Popular classes</h2>     
             <Swiper
                 effect={"coverflow"}
@@ -52,7 +52,7 @@ const PopularClass = () => {
                     <SwiperSlide key={popularClass._id}>
                         <div className="card card-compact w-96 bg-base-100 shadow-2xl">
                             <figure>
-                                <img className="h-96 object-cover" src={popularClass.classImage} alt="Shoes" />
+                                <img className="h-80" src={popularClass.classImage} alt="Shoes" />
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title">{popularClass.className}</h2>

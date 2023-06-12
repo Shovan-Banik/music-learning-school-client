@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import 'animate.css';
+import Marquee from "react-fast-marquee";
 
 const PopularInstructor = () => {
   const [popularInstructors, setPopularInstructors] = useState([]);
@@ -14,7 +15,8 @@ const PopularInstructor = () => {
   return (
     <div className="my-12">
       <h2 className="text-2xl md:text-5xl font-bold text-center my-12 animate__animated animate__bounce">Popular Instructors</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <Marquee>
+      <div className="grid grid-cols-6  gap-8">
         {
           popularInstructors.map(popularInstructor => <div key={popularInstructor._id} className="card card-compact w-96 bg-base-100 shadow-xl border-2">
             <figure><img className="h-80" src={popularInstructor.userImage} alt="user" /></figure>
@@ -25,6 +27,7 @@ const PopularInstructor = () => {
           </div>)
         }
       </div>
+      </Marquee>
     </div>
   );
 };
