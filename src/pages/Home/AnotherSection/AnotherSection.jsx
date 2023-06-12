@@ -17,21 +17,21 @@ const AnotherSection = () => {
                        <Slide> <FaDesktop className="text-5xl text-orange-700"></FaDesktop></Slide>
                     </div>
                     <h2 className="text-xl my-2 font-semibold">High Tech</h2>
-                    <p>We give you the free equipments</p>
+                    <p>We give you high tech support</p>
                 </div>
                 <div className="border-2 shadow-lg p-5 text-center rounded-xl">
                     <div className="flex justify-center">
                         <Slide><FaLaptopHouse className="text-5xl text-orange-700"></FaLaptopHouse></Slide>
                     </div>
                     <h2 className="text-xl my-2 font-semibold">Music Studio</h2>
-                    <p>We give you the free equipments</p>
+                    <p>We give you studio facilities</p>
                 </div>
                 <div className="border-2 shadow-lg p-5 text-center rounded-xl">
                     <div className="flex justify-center">
                         <Slide><FaUserFriends className="text-5xl text-orange-700"></FaUserFriends></Slide>
                     </div>
-                    <h2 className="text-xl my-2 font-semibold">Expert Teache7</h2>
-                    <p>We give you the free equipments</p>
+                    <h2 className="text-xl my-2 font-semibold">Expert Teacher</h2>
+                    <p>We trained you by expert teacher</p>
                 </div>
 
             </div>
